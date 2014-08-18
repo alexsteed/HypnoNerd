@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "BNRAppDelegate.h"
+#import "BNRReminderViewController.h"
 
 int main(int argc, char * argv[])
 {
