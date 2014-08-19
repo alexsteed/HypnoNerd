@@ -65,6 +65,17 @@
         
         // Add the label to the hierarchy
         [self.view addSubview:messageLabel];
+        
+        // Add a motion effect
+        UIInterpolatingMotionEffect *motionEffect;
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        motionEffect.minimumRelativeValue = @(-25);
+        motionEffect.maximumRelativeValue = @(25);
+        [messageLabel addMotionEffect:motionEffect];
+        motionEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        motionEffect.minimumRelativeValue = @(-25);
+        motionEffect.maximumRelativeValue = @(25);
+        [messageLabel addMotionEffect:motionEffect];
     }
 }
 
@@ -75,24 +86,6 @@
     textField.text = @"";
     [textField resignFirstResponder];
     return YES;
-}
-
-- (void)updateCircleColor:(UISegmentedControl *)segmentedControl
-{
-    switch (segmentedControl.selectedSegmentIndex)
-    {
-        case 0:
-            self.hypnosisView.circleColor = [UIColor redColor];
-            break;
-        case 1:
-            _hypnosisView.circleColor = [UIColor greenColor];
-            break;
-        case 2:
-            _hypnosisView.circleColor = [UIColor blueColor];
-            break;
-        default:
-            break;
-    }
 }
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

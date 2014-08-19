@@ -9,7 +9,6 @@
 #import "BNRAppDelegate.h"
 #import "BNRHypnosisViewController.h"
 #import "BNRReminderViewController.h"
-#import "BNRQuizViewController.h"
 
 @implementation BNRAppDelegate
 
@@ -19,9 +18,8 @@
     // Override point for customization after application launch.
     BNRHypnosisViewController *hvc = [[BNRHypnosisViewController alloc] init];
     BNRReminderViewController *rvc = [[BNRReminderViewController alloc] init];
-    BNRQuizViewController *qvc = [[BNRQuizViewController alloc] init];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    tabBarController.viewControllers = @[hvc, rvc, qvc];
+    tabBarController.viewControllers = @[hvc, rvc];
     self.window.rootViewController = tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
